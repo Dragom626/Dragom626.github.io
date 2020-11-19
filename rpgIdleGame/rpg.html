@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Stat Man RPG</title>
+<script src="rpg.js"></script>
+<link rel="stylesheet" type="text/css" href="rpg.css">
+</head>
+
+<body>
+<button id="AttackButton" onClick="preAttack()"> Attack </button>
+<button onClick="woodcutting()">Work as a woodcutter</button>
+<button onClick="mining()">Go Mining</button>
+<button onClick="hunting()">Hunt</button>
+<button onClick="bardship()">"Sing"</button>
+<button onClick="writing()">"Write"</button>
+<br>
+<br>
+<button onClick="tanHide()">Tan Hide</button>
+<button onClick="bindBook()">Bind Book</button>
+<button onClick="processLumber()">Process Lumber</button>
+<br>
+<br>
+<table><tr>
+<td>Gold: <span id="Gold">0</span></td>
+<td>Lumber: <span id="Lumber">0</span></td>
+<td>Stone: <span id="Stone">0</span></td>
+<td>Ore: <span id="Ore">0</span></td>
+<td>Animal Skin: <span id="Hide">0</span></td>
+<td>Leather: <span id="Leather">0</span></td>
+<td>Meat: <span id="Meat">0</span></td>
+<td>Pages: <span id="Pages">0</span></td>
+<td>Fame: <span id="Fame">0</span></td>
+</tr>
+<tr>
+<td>Books: <span id="Books">0</span></td>
+<td>Bark: <span id="Bark">0</span></td>
+<td>Planks: <span id="Planks">0</span></td>
+</tr>
+
+</table>
+<br>
+	<p>Enemy Hp: <span id="EnemyHp">0</span></p>
+<p align="center">Enemy HP: <progress id="EnemyHpBar" value="0" max="0"></progress></p>
+
+<button onClick="upgradeWeapon()">Upgrade Weapon</button>
+<p>Upgrade Cost: <span id="WeaponCost">10</span></p>
+
+<p>Output</p>
+<div style="height:100px;width:60%;border:1px solid #ccc;overflow:hidden;"><ol id="logger"></ol></div>
+
+</body>
+</html>

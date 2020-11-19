@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<link href="Center.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+<title>Blank Background</title>
+<script src="Save.js"></script>
+<script>
+	function hideClose(){
+		document.getElementById("closed").style.visibility='hidden';
+	}
+	function hideOpen(){
+		document.getElementById("open").style.visibility='hidden';
+	}
+	function showClose(){
+		document.getElementById("closed").style.visibility='visible';
+	}
+	function showOpen(){
+		document.getElementById("open").style.visibility='visible';
+	}
+	
+	
+var elem = document.documentElement;
+ function openFullscreen() {
+	hideOpen();
+	showClose();
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+ function closeFullscreen() {
+	hideClose();
+	showOpen();
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
+</script>
+</head>
+
+<body bgcolor="#0d0d0d">
+<div class="center" id="open" style="visibility: visible"> <button onclick="openFullscreen();">Open Fullscreen</button> </div>
+<div class="center" id="closed" style="visibility: hidden"> <button onclick="closeFullscreen();">Close Fullscreen</button> </div>
+
+</body>
+</html>

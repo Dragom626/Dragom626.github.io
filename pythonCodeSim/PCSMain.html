@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Python Coding Sim</title>
+<link rel="stylesheet" type="text/css" href="format.css">
+<script type="text/javascript" src="main.js"></script>
+</head>
+
+<body bgcolor="black" text="#35C733">
+<button onClick="writeCode(1)">Write Code</button> <button onClick="sellCode(1)">Sell Code 10 Lines of Code</button> <button onClick="upgradeSkills(1)">Upgrade Skills</button>
+
+<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
+<button id="TimeBuy" onClick="buyTime(1)">Learn Time</button> <button id="MathBuy" onClick="buyMath(1)">Learn Math</button> <button id="PyGameBuy" onClick="buyPyGame(1)">Learn PyGame</button>
+
+<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
+<p>Lines Of Code:<span id="Code">0</span></p> <p>Code Needed for Project:<span id="CodeNeeded">0</span></p>
+<p>Cash: <span id="Cash">0</span></p>
+<p> Skills Learned: <span id="TimeS"></span><span id="MathS"></span><span id="PyGameS"></span></p>
+<p>Skill Level: <span id="SkillLevel">1</span></p>
+<p>Skill Price: <span id="SkillPrice">5000</span></p>
+<p>Total Lines of Code:<span id="CodeTotal">0</span></p>
+
+<p>The Console Says: <span id="Message"></span></p>
+</body>
+</html>
