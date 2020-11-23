@@ -62,15 +62,22 @@ function randomNumGen(){
 	randomNum = Math.floor(Math.random() * EnemyLevel);
 }
 
-var X = 0;
-var Y = 0;
-var Output = 0;
 
-function addVariables(){
-	Output = Math.round(X + Y);
-	console.log(Output);
-	document.getElementById("Books").innerHTML = Output;
+function resourceTierSelect(evt, tierSelect) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tierSelect).style.display = "block";
+  evt.currentTarget.className += " active";
 }
+
+
 
 //Damage Calc Function
 /*jshint unused:false*/
@@ -165,6 +172,19 @@ function hunting(){
 	Hide = Hide + HuntingSkill;
 	document.getElementById("Meat").innerHTML = Meat;
 	document.getElementById("Hide").innerHTML = Hide;
+}
+
+function tanHide(){
+	if(Hide > 0){
+		Leather = Leather + 1;
+		Hide = Hide - 1;
+		document.getElementById("Hide").innerHTML = Hide;
+		document.getElementById("Leather").innerHTML = Leather;
+		document.getElementById("logger").innerHTML = "You successfully tanned a piece of Hide into Leather.";
+	}
+	else{
+		document.getElementById("logger").innerHTML = "You need more hide for this.";
+	}
 }
 
 function bardship(){

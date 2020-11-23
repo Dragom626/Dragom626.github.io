@@ -6,40 +6,65 @@
 <script src="rpg.js"></script>
 <link rel="stylesheet" type="text/css" href="rpg.css">
 </head>
+<h3>Universal Materials</h3>
+<table><tr>
+<td>Gold: <span id="Gold">0</span></td>
+</tr></table>
 
 <body>
-<button id="AttackButton" onClick="preAttack()"> Attack </button>
+<div class="tab">
+  <button class="tablinks" onclick="resourceTierSelect(event, 'TierOneM')">Tier One Materials</button>
+  <button class="tablinks" onclick="resourceTierSelect(event, 'TierTwoM')">Tier Two Materials</button>
+  <button class="tablinks" onclick="resourceTierSelect(event, 'TierThreeM')">Tier Three Materials</button>
+</div>
+
+
+
+<div id="TierOneM" class="tabcontent">
+ <br>
+ 
 <button onClick="woodcutting()">Work as a woodcutter</button>
 <button onClick="mining()">Go Mining</button>
 <button onClick="hunting()">Hunt</button>
 <button onClick="bardship()">"Sing"</button>
 <button onClick="writing()">"Write"</button>
-<br>
-<br>
-<button onClick="tanHide()">Tan Hide</button>
-<button onClick="bindBook()">Bind Book</button>
-<button onClick="processLumber()">Process Lumber</button>
-<br>
-<br>
+  
+  
 <table><tr>
-<td>Gold: <span id="Gold">0</span></td>
 <td>Lumber: <span id="Lumber">0</span></td>
 <td>Stone: <span id="Stone">0</span></td>
 <td>Ore: <span id="Ore">0</span></td>
 <td>Animal Skin: <span id="Hide">0</span></td>
-<td>Leather: <span id="Leather">0</span></td>
 <td>Meat: <span id="Meat">0</span></td>
 <td>Pages: <span id="Pages">0</span></td>
 <td>Fame: <span id="Fame">0</span></td>
 </tr>
-<tr>
-<td>Books: <span id="Books">0</span></td>
-<td>Bark: <span id="Bark">0</span></td>
-<td>Planks: <span id="Planks">0</span></td>
-</tr>
-
 </table>
 <br>
+</div>
+
+<div id="TierTwoM" class="tabcontent">
+<br>
+
+<button onClick="tanHide()">Tan Hide</button>
+<button onClick="bindBook()">Bind Book</button>
+<button onClick="processLumber()">Process Lumber</button>
+
+<table><tr>
+<td>Books: <span id="Books">0</span></td>
+<td>Bark: <span id="Bark">0</span></td>
+<td>Leather: <span id="Leather">0</span></td>
+<td>Planks: <span id="Planks">0</span></td>
+</tr></table>
+<br>
+</div>
+
+<div id="TierThreeM" class="tabcontent">
+  <p>Tier Three coming soon :D</p>
+</div>
+<br>
+
+<button id="AttackButton" onClick="preAttack()"> Attack </button>
 	<p>Enemy Hp: <span id="EnemyHp">0</span></p>
 <p align="center">Enemy HP: <progress id="EnemyHpBar" value="0" max="0"></progress></p>
 
