@@ -13,24 +13,33 @@
 
 <body>
 <div class="tab">
- <button class="tablinks" onclick="resourceTierSelect(event, 'TierOneM')">Tier One Materials</button>
+ <button class="tablinks" onclick="resourceTierSelect(event, 'Combat')">Combat</button>
   <button class="tablinks" onclick="resourceTierSelect(event, 'TierOneM')">Tier One Materials</button>
   <button class="tablinks" onclick="resourceTierSelect(event, 'TierTwoM')">Tier Two Materials</button>
   <button class="tablinks" onclick="resourceTierSelect(event, 'TierThreeM')">Tier Three Materials</button>
 </div>
 
+<div id="Combat" class="tabcontent">
+
+  <button id="AttackButton" onClick="preAttack()"> Attack </button>
+  	<p>Enemy Hp: <span id="EnemyHp">0</span></p>
+  <p align="center">Enemy HP: <progress id="EnemyHpBar" value="0" max="0"></progress></p>
+
+  <button onClick="upgradeWeapon()">Upgrade Weapon</button>
+  <p>Upgrade Cost: <span id="WeaponCost">10</span></p>
+</div>
 
 
 <div id="TierOneM" class="tabcontent">
  <br>
- 
+
 <button onClick="woodcutting()">Work as a woodcutter</button>
 <button onClick="mining()">Go Mining</button>
 <button onClick="hunting()">Hunt</button>
 <button onClick="bardship()">"Sing"</button>
 <button onClick="writing()">"Write"</button>
-  
-  
+<br>
+<br>
 <table><tr>
 <td>Lumber: <span id="Lumber">0</span></td>
 <td>Stone: <span id="Stone">0</span></td>
@@ -64,13 +73,6 @@
   <p>Tier Three coming soon :D</p>
 </div>
 <br>
-
-<button id="AttackButton" onClick="preAttack()"> Attack </button>
-	<p>Enemy Hp: <span id="EnemyHp">0</span></p>
-<p align="center">Enemy HP: <progress id="EnemyHpBar" value="0" max="0"></progress></p>
-
-<button onClick="upgradeWeapon()">Upgrade Weapon</button>
-<p>Upgrade Cost: <span id="WeaponCost">10</span></p>
 
 <p>Output</p>
 <div style="height:100px;width:60%;border:1px solid #ccc;overflow:hidden;"><ol id="logger"></ol></div>

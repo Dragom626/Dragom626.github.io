@@ -35,18 +35,18 @@ var MiningSkill = 0;
 	//Writing
 	var Pages = 0;
 	var Books = 0;
-	
+
 	//Woodcutting
 	var Lumber = 0;
 	var LumberGained = 0;
 	var Bark = 0;
 	var Planks =0;
-	
+
 	//Hunting
 	var Meat = 0;
 	var Hide = 0;
 	var Leather = 0;
-	
+
 	//Mining
 	var Stone = 0;
 	var Ore = 0;
@@ -58,8 +58,10 @@ var MiningSkill = 0;
 
 
 //Random Number Gen
-function randomNumGen(){
-	randomNum = Math.floor(Math.random() * EnemyLevel);
+function randomNumGen(min, max){
+	min = Math.ceil(min);
+ 	max = Math.floor(max);
+ 	return Math.floor(Math.random() * (max - min) + min);
 }
 
 
@@ -77,17 +79,14 @@ function resourceTierSelect(evt, tierSelect) {
   evt.currentTarget.className += " active";
 }
 
-
-
 //Damage Calc Function
-/*jshint unused:false*/
 function preAttack(){
 	if(EnemyHp <= 0){
 		enemySet();
 	}
 	else{
 		defineDamage();
-		EnemyHp = EnemyHp - damageOutput; 
+		EnemyHp = EnemyHp - damageOutput;
 		document.getElementById("EnemyHpBar").setAttribute("value", EnemyHp);
 		document.getElementById("EnemyHp").innerHTML = EnemyHp;
 		document.getElementById("AttackButton").disabled = true;
@@ -102,11 +101,11 @@ function preAttack(){
 }
 
 //Attacking Function
-
 function defineDamage(){
 	damageOutput = BaseDamage + Attack;
 }
 
+//Enemy Creating Function
 function enemySet(){
 	randomNumGen();
 	EnemyHpMax = (randomNum * 1.3) + 10;
@@ -118,47 +117,40 @@ function enemySet(){
 }
 
 //Job Functions
+
+//Woodcutting Skill Functions
 function woodcutting(){
-	if(WoodcuttingSkill <= 14){
-		LumberGained = Math.round((((WoodcuttingSkill * 0.5))* 0.5));
+		LumberGained = randomNumGen((WoodcuttingSkill*0.2), (WoodcuttingSkill*0.8))
 		if(LumberGained === 0){LumberGained = 1;}
 		Lumber = Lumber + LumberGained;
 		document.getElementById("Lumber").innerHTML = Lumber;
 		document.getElementById("logger").innerHTML = "You wildly swing your axe and manage to fell a small tree.";
 		LumberGained = 0;
-		}
-	else if(WoodcuttingSkill <= 49 || WoodcuttingSkill >= 15){
-		LumberGained = Math.round((((WoodcuttingSkill * 0.5))* 0.5));
-		Lumber = Lumber + LumberGained;
-		LumberGained = 0;
-		document.getElementById("Lumber").innerHTML = Lumber;
-		document.getElementById("logger").innerHTML = "With newfound skills you start attacking a slightly larger tree.";
-	}
 	}
 
 function processLumber(){
+	if(Lumber > 0){
 	Lumber = Lumber - 1;
 	Bark = Bark + 1;
 	Planks = Planks + 1;
 	document.getElementById("Bark").innerHTML = Bark;
 	document.getElementById("Planks").innerHTML = Planks;
+	}
+	else{document.getElementById("logger").innerHTML = "You need more lumber to do this."}
 }
 
-
+//Mining Skill Functions
 function mining(){
 	if(MiningSkill <= 14){
-		StoneGained = Math.round((((MiningSkill * 0.5))* 0.5));
+		StoneGained = 1;
+		if(StoneGained === 0){StoneGained = 1;}
 		Stone = Stone + StoneGained;
-		StoneGained = 0;
 		document.getElementById("Stone").innerHTML = Stone;
 		document.getElementById("logger").innerHTML = "You swing the pickaxe you found near the quarry and some stone comes loose.";
 	}
-	else if(MiningSkill <= 49 || MiningSkill >= 15){
-		OreGained = Math.round((((MiningSkill * 0.5))* 0.5));
-		StoneGained = Math.round((((MiningSkill * 0.5))* 0.5));
-		Stone = Stone + StoneGained;
-		Ore = Ore + OreGained;
-		StoneGained = 0;
+	else {
+		Stone = Stone + 1;//(randomNumGen((MiningSkill*0.2), (MiningSkill*0.4)))
+		Ore = Ore + (randomNumGen((MiningSkill*0.5), (MiningSkill*1)))
 		document.getElementById("Stone").innerHTML = Stone;
 		document.getElementById("Ore").innerHTML = Ore;
 		document.getElementById("logger").innerHTML = "With your newfound skills you are able to spot and mine ore. What ore though, you have no clue.";
@@ -167,6 +159,7 @@ function mining(){
 	document.getElementById("Ore").innerHTML = Ore;
 }
 
+//Hunting Skill Functions
 function hunting(){
 	Meat = Meat + HuntingSkill;
 	Hide = Hide + HuntingSkill;
